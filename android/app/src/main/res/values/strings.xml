@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="facebook_app_id">453750233571107</string>
+    <string name="fb_login_protocol_scheme">fb5f5cc4bf3a7bef446caf6b423875402e</string>
+<!--    <string name="facebook_client_token">56789</string>-->
+    <string name="app_name">zahra</string>
+
+
+</resources>
