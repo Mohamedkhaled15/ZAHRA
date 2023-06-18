@@ -27,6 +27,13 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  syncfusion_flutter_datepicker:
+  calendar_date_picker2:
+  socket_io_client:
+  shared_preferences:
+  flutter_custom_tab_bar:
+  avatar_view:
+  flutter_launcher_icons:
   flutter:
     sdk: flutter
 
@@ -34,24 +41,25 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-  get: ^4.6.5
-  animated_splash_screen: ^1.3.0
-  bloc: ^8.1.1
-  flutter_bloc: ^8.1.2
-  dio: ^4.0.6
-  shared_preferences: ^2.0.15
-  http: ^0.13.4
-  conditional_builder_null_safety: ^0.0.6
-  fluttertoast: ^8.0.9
-  google_sign_in: ^6.0.2
-  firebase_auth: ^4.3.0
-  firebase_core: ^2.8.0
-  get_storage: ^2.0.3
-  flutter_facebook_auth: any
-  flutter_login_facebook: ^1.7.0
-  hive_generator: ^2.0.0
-  hive_flutter: ^1.1.0
-  hive: ^2.2.3
+  get:
+  animated_splash_screen:
+  dio:
+  http:
+  conditional_builder_null_safety:
+  fluttertoast: ^8.2.2
+  google_sign_in:
+  get_storage:
+  flutter_facebook_auth:
+  flutter_login_facebook:
+  hive_generator:
+  hive_flutter:
+  hive:
+  firebase_core:
+  firebase_auth:
+  cloud_firestore:
+  bloc:
+  flutter_bloc:
+
 
 dev_dependencies:
   flutter_test:
@@ -108,3 +116,19 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/BalooBhaijaan2-Regular.ttf
+          weight: 100
+        - asset: assets/fonts/Poppins-Regular.ttf
+          weight: 700
+        - asset: assets/fonts/BalooBhaijaan2-SemiBold.ttf
+          weight: 700
+        - asset: assets/fonts/BalooBhaijaan2-Bold.ttf
+          weight: 900
+
+    - family: FS_Bold
+      fonts:
+        - asset: assets/fonts/FS_Bold.ttf
+          weight: 700
