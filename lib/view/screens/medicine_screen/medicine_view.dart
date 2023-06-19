@@ -8,7 +8,8 @@ import 'package:zahra/core/constant/values_manger.dart';
 
 import '../../../core/component/default_button.dart';
 import '../../../core/constant/image_assets_manager.dart';
-import '../../widget/item_drawer.dart';
+
+import '../../../presentation/component/item_drawer.dart';
 import '../add_plane_screen/add_plan_view.dart';
 import '../home_screen/home_view.dart';
 import '../notification_screen/notification_view.dart';

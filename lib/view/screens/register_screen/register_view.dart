@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:flutter_login_facebook/flutter_login_facebook.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
+
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:zahra/view/screens/register_screen/cubit/cubit.dart';
 import 'package:zahra/view/screens/register_screen/cubit/state.dart';
@@ -39,6 +39,7 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
+  final FirebaseAuth _auth=FirebaseAuth.instance;
   final TextEditingController _nameController = TextEditingController();
 
   final TextEditingController _emailController = TextEditingController();
@@ -46,6 +47,9 @@ class _RegisterState extends State<Register> {
   final TextEditingController _passwordController = TextEditingController();
 
   final TextEditingController _phoneController = TextEditingController();
+  late String email;
+  late String password;
+
   bool checkedBoxValue = false;
 
 late User _user;
@@ -194,12 +198,18 @@ final GoogleSignIn googleSignIn = GoogleSignIn();
                                         prefixIconData: Icons.email_outlined,
                                         keyboardType:
                                             TextInputType.emailAddress,
+
                                         validateFun: (value) {
+
                                           if (value != null && value.isEmpty) {
                                             return "يرجي إدخال عنوان بريدك ألكتروني صحيح";
                                           }
+
                                           return null;
                                         },
+                                        onChangeFun: (value){
+                                          email=value;
+                                        }
                                       ),
                                       SizedBox(
                                         height:
@@ -221,12 +231,17 @@ final GoogleSignIn googleSignIn = GoogleSignIn();
                                           cubit.changePasswordVisibility();
                                           setState(() {});
                                         },
+
                                         validateFun: (value) {
+
                                           if (value != null && value.isEmpty) {
                                             return "كلمة المرور قصيرة جدا";
                                           }
                                           return null;
                                         },
+                                          onChangeFun: (value){
+                                            password=value;
+                                          }
                                       ),
                                       SizedBox(
                                         height:
@@ -241,6 +256,7 @@ final GoogleSignIn googleSignIn = GoogleSignIn();
                                         prefixIconData: Icons.phone_android,
                                         keyboardType: TextInputType.phone,
                                         validateFun: (value) {
+
                                           if (value != null && value.isEmpty) {
                                             return "يرجي إدخال رقم هاتفك";
                                           }
@@ -284,7 +300,14 @@ final GoogleSignIn googleSignIn = GoogleSignIn();
                                         MediaQuery.of(context).size.height / 16,
                                         fontWight: FontWeight.normal,
                                         backGround: ColorManager.secondary,
-                                        onTap: () {
+                                        onTap: () async{
+                                          try{
+                                            final user= await _auth.
+                                            createUserWithEmailAndPassword(email: email,
+                                                password: password);
+                                          }catch(error){
+                                            print(error);
+                                          }
                                           if (_formKey.currentState!.validate()) {
                                             FocusScope.of(context).unfocus();
 
@@ -297,6 +320,7 @@ final GoogleSignIn googleSignIn = GoogleSignIn();
 
                                             );
                                           }
+
                                         }
                                     ),
                                   fallback: (_) => const Center(

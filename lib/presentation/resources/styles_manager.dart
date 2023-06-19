@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:zahra/presentation/resources/font_manager.dart';
+import 'package:zahra/presentation/resources/values_manager.dart';
 
-import '../../core/constant/font_manager.dart';
-import '../../core/constant/values_manger.dart';
+
 
 
 

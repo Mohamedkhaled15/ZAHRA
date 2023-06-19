@@ -40,7 +40,4 @@ class ProfileController{
     AppStrings.con,
 
   ];
-
-
-
 }

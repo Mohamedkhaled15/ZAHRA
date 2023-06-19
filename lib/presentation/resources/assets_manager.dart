@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
+import 'package:zahra/presentation/resources/color_manager.dart';
+import 'package:zahra/presentation/resources/values_manager.dart';
 
-import '../../core/constant/colors_manager.dart';
-import '../../core/constant/values_manger.dart';
+
 
 
 const String imagePath="assets/images";

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:zahra/presentation/resources/strings_manager.dart';
 import 'package:zahra/presentation/screens/appointment_screen/appointment_view.dart';
 import 'package:zahra/presentation/screens/selfExam_screen/selfExam_view.dart';
-
 import '../../layout/shop_layout/main_layout.dart';
 import '../../view/screens/add_info_screen/add_info_view.dart';
 import '../../view/screens/daily_check_up_screen/daily_check_up_view.dart';

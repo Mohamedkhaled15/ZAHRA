@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:zahra/presentation/screens/profile_screen/profile_controller.dart';
 import '../../component/item_drawer.dart';
 import '../../resources/assets_manager.dart';
@@ -11,9 +9,8 @@ import '../../resources/strings_manager.dart';
 import '../../resources/styles_manager.dart';
 import '../../resources/values_manager.dart';
 
-
 class ProfileView extends StatefulWidget {
-  ProfileView({super.key});
+  const ProfileView({super.key});
 
   @override
   State<ProfileView> createState() => _ProfileViewState();
@@ -38,36 +35,29 @@ class _ProfileViewState extends State<ProfileView> {
         _name = sharedPreferences.getString('key_name')!;
       }
       else{
-        _name=' SP is null';
+        _name=' enter your name';
       }
       if(sharedPreferences.getString('key_email')!=null&&sharedPreferences.getString('key_email')!.isNotEmpty) {
         _email = sharedPreferences.getString('key_email')!;
       }else{
-        _email=' SP is null';
+        _email=' enter your email';
       }
       if(sharedPreferences.getString('key_password')!=null&&sharedPreferences.getString('key_password')!.isNotEmpty) {
         _password = sharedPreferences.getString('key_password')!;
       }else{
-        _password=' SP is null';
+        _password='enter your password';
       }
     });
   }
 
-  _saveData(String message )async{
+  _saveData(String message,String em ,String pas )async{
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     sharedPreferences.setString('key_name', message);
-
-  }
-  _saveData1(String em )async{
-    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     sharedPreferences.setString('key_email', em);
-
-  }
-  _saveData2(String pas )async{
-    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     sharedPreferences.setString('key_password', pas);
 
   }
+
   // final _fireStore=FirebaseFirestore.instance;
   // final _auth=FirebaseAuth.instance;
   bool isEdited = false;
@@ -164,10 +154,10 @@ class _ProfileViewState extends State<ProfileView> {
                       alignment: Alignment.topLeft,
                       child: TextButton(
                         onPressed: () async{
-                          _saveData(controller.name!);
-                          _saveData1(controller.email!);
-                          _saveData2(controller.password!);
+                          isEdited = !isEdited;
+                          _saveData(controller.name!,controller.email!,controller.password!);
                           print(_name);
+                          isEdited = !isEdited;
 
                           // isEdited = !isEdited;
                           // isSelected = false;
@@ -260,14 +250,11 @@ class _ProfileViewState extends State<ProfileView> {
                       decoration: InputDecoration(
                         hintTextDirection: TextDirection.rtl,
                         hintText: _name,
-
                         labelStyle:
                             TextStyle(color: ColorManager.lightSecondary),
                         fillColor: ColorManager.white,
                         filled: true,
-
                       ),
-
                       enabled: isEdited,
                     ),
                   ),

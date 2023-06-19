@@ -5,20 +5,20 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 import '../../../core/component/default_buttom_plane.dart';
-import '../../../core/component/default_button.dart';
+
 import '../../../core/constant/colors_manager.dart';
 import '../../../core/constant/font_manager.dart';
 import '../../../core/constant/image_assets_manager.dart';
 import '../../../core/constant/strings_manger.dart';
 import '../../../core/constant/values_manger.dart';
+import '../../../presentation/component/item_drawer.dart';
 import '../../widget/appoinment_first_dose.dart';
 import '../../widget/button_save_data_add_plan.dart';
-import '../../widget/custom_text_form_field.dart';
+
 import '../../widget/dosingPattern.dart';
 import '../../widget/duration_treatment.dart';
-import '../../widget/item_drawer.dart';
-import '../before_plan_screen/before_plane_view.dart';
-import 'current_plane.dart';
+
+
 
 class AddPlaneView extends StatefulWidget {
   AddPlaneView({Key? key}) : super(key: key);

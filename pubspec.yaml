@@ -59,6 +59,7 @@ dependencies:
   cloud_firestore:
   bloc:
   flutter_bloc:
+  modal_progress_hud_nsn:
 
 
 dev_dependencies:

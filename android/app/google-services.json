@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "361841074109",
-    "project_id": "zahra-a12f3",
-    "storage_bucket": "zahra-a12f3.appspot.com"
+    "project_number": "608015311422",
+    "project_id": "zahragp-6b90e",
+    "storage_bucket": "zahragp-6b90e.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:361841074109:android:42593175356badc6cc7cd4",
+        "mobilesdk_app_id": "1:608015311422:android:5de98c73471cbf8dff276f",
         "android_client_info": {
-          "package_name": "com.example.zahra"
+          "package_name": "com.AboKhaled156.example.zahra"
         }
       },
       "oauth_client": [
         {
-          "client_id": "361841074109-c5noeukl202c4ta5s29rsv7i27ov9fh9.apps.googleusercontent.com",
+          "client_id": "608015311422-71qn83dckkqs84oncc79gr4h6g87ar6n.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDw4gtCGuDxJmPh26FXdh1DyxsiuNXL8fU"
+          "current_key": "AIzaSyCFIItfTf2Hz0AYggO1f-QSwzmgvzQ2CtY"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "361841074109-c5noeukl202c4ta5s29rsv7i27ov9fh9.apps.googleusercontent.com",
+              "client_id": "608015311422-71qn83dckkqs84oncc79gr4h6g87ar6n.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

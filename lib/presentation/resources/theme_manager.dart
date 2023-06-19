@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:zahra/presentation/resources/color_manager.dart';
+import 'package:zahra/presentation/resources/font_manager.dart';
+import 'package:zahra/presentation/resources/styles_manager.dart';
+import 'package:zahra/presentation/resources/values_manager.dart';
 
-import '../../core/constant/colors_manager.dart';
-import '../../core/constant/font_manager.dart';
-import '../../core/constant/styles_manger.dart';
-import '../../core/constant/values_manger.dart';
+
 
 
 ThemeData getAppTheme(){

@@ -11,7 +11,8 @@ import '../../../core/constant/strings_manger.dart';
 import '../../../core/constant/values_manger.dart';
 
 import '../../../view/screens/add_plane_screen/add_plan_view.dart';
-import '../../../view/widget/item_drawer.dart';
+
+import '../../component/item_drawer.dart';
 import '../home_screen/home_view.dart';
 import '../notification_screen/notification_view.dart';
 import '../profile_screen/profile_view.dart';

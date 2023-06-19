@@ -40,12 +40,11 @@ class _MyAppState extends State<MyApp> {
     builder: (ctx, state) {
       // ShopCubit cubit = ShopCubit.get(ctx);
       return GetMaterialApp(
-        theme: ThemeData(scaffoldBackgroundColor:
-        ColorManager.primary,
-        ),
+
         debugShowCheckedModeBanner: false,
         onGenerateRoute: RouteGenerator.getRoute,
         initialRoute: Routes.splashRoute,
+        theme: getAppTheme(),
       );
     },
       ),

@@ -24,11 +24,15 @@ class PrivateDoctor extends StatefulWidget {
 }
 
 class _PrivateDoctorState extends State<PrivateDoctor> {
+
+
   final messageTextController = TextEditingController();
 
   final _auth = FirebaseAuth.instance;
 
+
   String? messageText;
+
 
   @override
   void initState() {
@@ -72,115 +76,206 @@ class _PrivateDoctorState extends State<PrivateDoctor> {
       length: itemCount,
       child: Padding(
         padding:
-            const EdgeInsets.only(left: AppPadding.p2, right: AppPadding.p2),
+        const EdgeInsets.only(left: AppPadding.p2, right: AppPadding.p2),
         child: Column(
           children: [
             Container(
                 width: double.infinity,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(AppSize.s32),
-                    // boxShadow: [
-                    //   BoxShadow(
-                    //       color: ColorManager.gray, //New
-                    //       blurRadius: 1.0,
-                    //       offset:Offset (1,1),
-                    //       spreadRadius: 1
-                    //   )
-                    // ],
                     color: ColorManager.darkPage),
-                height: MediaQuery.of(context).size.height / 15,
+                height: MediaQuery
+                    .of(context)
+                    .size
+                    .height / 15,
                 child: TabBar(
                   padding: const EdgeInsets.all(0),
                   labelPadding:
-                      const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+                  const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
                   indicatorColor: ColorManager.darkSecondary,
                   indicatorSize: TabBarIndicatorSize.label,
                   tabs: [
-                    Tab(
-                      child: SizedBox(
-                        child: ClipOval(
-                          child: Image(
-                            image: AssetImage(ImageAssets.me),
-                          ),
-                        ),
+                    ClipOval(
+                      child: Image(
+                        image: AssetImage(ImageAssets.me),
                       ),
                     ),
-                    Tab(
-                      child: SizedBox(
-                        child: ClipOval(
-                          child: Image(
-                            image: AssetImage(ImageAssets.me),
-                          ),
-                        ),
+                    ClipOval(
+                      child: Image(
+                        image: AssetImage(ImageAssets.me),
                       ),
                     ),
-                    Tab(
-                      child: SizedBox(
-                        child: ClipOval(
-                          child: Image(
-                            image: AssetImage(ImageAssets.me),
-                          ),
-                        ),
+                    ClipOval(
+                      child: Image(
+                        image: AssetImage(ImageAssets.me),
                       ),
                     ),
-                    Tab(
-                      child: SizedBox(
-                        child: ClipOval(
-                          child: Image(
-                            image: AssetImage(ImageAssets.me),
-                          ),
-                        ),
+                    ClipOval(
+                      child: Image(
+                        image: AssetImage(ImageAssets.me),
                       ),
                     ),
-                    Tab(
-                      child: GestureDetector(
-                        onTap: () {
-                          showDialog(
-                            context: context,
-                            builder: (BuildContext context) {
-                              return AlertDialog(
-                                backgroundColor: ColorManager.primary,
-                                title: Text(
-                                  AppStrings.addDoctor,
-                                  style:
+                    GestureDetector(
+                      onTap: () {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              backgroundColor: ColorManager.primary,
+                              title: Text(
+                                AppStrings.addDoctor,
+                                style: getNormalStyle(
+                                    color: ColorManager.darkSecondary),
+                              ),
+                              content: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [ Align(
+                                    alignment: Alignment.topLeft,
+                                    child: Text("Enter Doctor Email",
+                                      style: getNormalStyle(
+                                          color: ColorManager.darkSecondary),)
 
-                                  getNormalStyle(
-                                      color: ColorManager.darkSecondary),
                                 ),
-                                content: Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: const [],
-                                ),
-                                actions: [
-                                  TextButton(
-                                    child: Text('CANCEL',
-                                        style: getNormalStyle(
-                                            color: ColorManager.darkSecondary)),
-                                    onPressed: () {
-                                      Navigator.of(context).pop();
+                                  TextFormField(
+                                    onChanged: (value) {
+
                                     },
-                                  ),
-                                  TextButton(
-                                    child: Text('OK',
-                                        style: getNormalStyle(
-                                            color: ColorManager.darkSecondary)),
-                                    onPressed: () {
-                                      Navigator.of(context).pop();
-                                      // Do something when the user presses the OK button
-                                    },
-                                  ),
+                                  )
                                 ],
-                              );
-                            },
-                          );
-                        },
-                        child: CircleAvatar(
-                          backgroundImage: (AssetImage(ImageAssets.add)),
-                          backgroundColor: ColorManager.darkPage,
-                        ),
+                              ),
+                              actions: [
+                                TextButton(
+                                  child: Text('CANCEL',
+                                      style: getNormalStyle(
+                                          color: ColorManager.darkSecondary)),
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                  },
+                                ),
+                                TextButton(
+                                  child: Text('OK',
+                                      style: getNormalStyle(
+                                          color: ColorManager.darkSecondary)),
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                    // Do something when the user presses the OK button
+                                  },
+                                ),
+                              ],
+                            );
+                          },
+                        );
+                      },
+                      child: CircleAvatar(
+                        backgroundImage: (AssetImage(ImageAssets.add)),
+                        backgroundColor: ColorManager.darkPage,
                       ),
                     ),
+
+
                   ],
+
+
+                  // tabs: [
+                  //
+                  //   // Tab(
+                  //   //   child: SizedBox(
+                  //   //     child: ClipOval(
+                  //   //       child: Image(
+                  //   //         image: AssetImage(ImageAssets.me),
+                  //   //       ),
+                  //   //     ),
+                  //   //   ),
+                  //   // ),
+                  //   // const Tab(
+                  //   //   child: SizedBox(
+                  //   //     child: ClipOval(
+                  //   //       child: Image(
+                  //   //         image: AssetImage('assets/images/doctor3.jpg'),
+                  //   //       ),
+                  //   //     ),
+                  //   //   ),
+                  //   // ),
+                  //   // const Tab(
+                  //   //   child: SizedBox(
+                  //   //     child: ClipOval(
+                  //   //       child: Image(
+                  //   //         image: AssetImage('assets/images/doctorah.jpg'),
+                  //   //       ),
+                  //   //     ),
+                  //   //   ),
+                  //   // ),
+                  //   // const Tab(
+                  //   //   child: SizedBox(
+                  //   //     child: ClipOval(
+                  //   //       child: Image(
+                  //   //         image: AssetImage('assets/images/doctorah2.jpg'),
+                  //   //       ),
+                  //   //     ),
+                  //   //   ),
+                  //   // ),
+                  //   // Tab(
+                  //   //   child: GestureDetector(
+                  //   //     onTap: () {
+                  //   //       showDialog(
+                  //   //         context: context,
+                  //   //         builder: (BuildContext context) {
+                  //   //           return AlertDialog(
+                  //   //             backgroundColor: ColorManager.primary,
+                  //   //             title: Text(
+                  //   //               AppStrings.addDoctor,
+                  //   //               style:
+                  //   //
+                  //   //               getNormalStyle(
+                  //   //                   color: ColorManager.darkSecondary),
+                  //   //             ),
+                  //   //             content:  Column(
+                  //   //               mainAxisSize: MainAxisSize.min,
+                  //   //               children: [
+                  //   //                 Align(
+                  //   //                     alignment:Alignment.topLeft,
+                  //   //                     child: Text("Enter Doctor Email",
+                  //   //                       style: getNormalStyle(
+                  //   //                           color: ColorManager.darkSecondary),)
+                  //   //
+                  //   //                 ),
+                  //   //                 TextFormField(
+                  //   //                   onChanged: (value){
+                  //   //
+                  //   //                   },
+                  //   //                 ),
+                  //   //               ],
+                  //   //             ),
+                  //   //             actions: [
+                  //   //               TextButton(
+                  //   //                 child: Text('CANCEL',
+                  //   //                     style: getNormalStyle(
+                  //   //                         color: ColorManager.darkSecondary)),
+                  //   //                 onPressed: () {
+                  //   //                   Navigator.of(context).pop();
+                  //   //                 },
+                  //   //               ),
+                  //   //               TextButton(
+                  //   //                 child: Text('OK',
+                  //   //                     style: getNormalStyle(
+                  //   //                         color: ColorManager.darkSecondary)),
+                  //   //                 onPressed: () {
+                  //   //                   Navigator.of(context).pop();
+                  //   //                   // Do something when the user presses the OK button
+                  //   //                 },
+                  //   //               ),
+                  //   //             ],
+                  //   //           );
+                  //   //         },
+                  //   //       );
+                  //   //     },
+                  //   //     child: CircleAvatar(
+                  //   //       backgroundImage: (AssetImage(ImageAssets.add)),
+                  //   //       backgroundColor: ColorManager.darkPage,
+                  //   //     ),
+                  //   //   ),
+                  //   // ),
+                  // ],
                 )),
             Expanded(
               child: TabBarView(
@@ -251,12 +346,12 @@ class _PrivateDoctorState extends State<PrivateDoctor> {
                                   },
                                   decoration: InputDecoration(
                                     labelStyle:
-                                        TextStyle(color: ColorManager.white),
+                                    TextStyle(color: ColorManager.white),
                                     fillColor: ColorManager.secondary,
                                     filled: true,
                                     hintText: AppStrings.writeMessage,
                                     hintStyle:
-                                        TextStyle(color: ColorManager.white50),
+                                    TextStyle(color: ColorManager.white50),
                                     hintTextDirection: TextDirection.rtl,
                                     suffixIcon: IconManager.file,
                                     prefixIcon: InkWell(
@@ -267,7 +362,7 @@ class _PrivateDoctorState extends State<PrivateDoctor> {
                                             'text': messageText,
                                             'sender': signedInUser.email,
                                             'time':
-                                                FieldValue.serverTimestamp(),
+                                            FieldValue.serverTimestamp(),
                                           });
                                           messageTextController.clear();
                                         },
@@ -363,12 +458,12 @@ class _PrivateDoctorState extends State<PrivateDoctor> {
                                   },
                                   decoration: InputDecoration(
                                     labelStyle:
-                                        TextStyle(color: ColorManager.white),
+                                    TextStyle(color: ColorManager.white),
                                     fillColor: ColorManager.secondary,
                                     filled: true,
                                     hintText: AppStrings.writeMessage,
                                     hintStyle:
-                                        TextStyle(color: ColorManager.white50),
+                                    TextStyle(color: ColorManager.white50),
                                     hintTextDirection: TextDirection.rtl,
                                     suffixIcon: IconManager.file,
                                     prefixIcon: InkWell(
@@ -379,7 +474,7 @@ class _PrivateDoctorState extends State<PrivateDoctor> {
                                             'text': messageText,
                                             'sender': signedInUser.email,
                                             'time':
-                                                FieldValue.serverTimestamp(),
+                                            FieldValue.serverTimestamp(),
                                           });
                                           messageTextController.clear();
                                         },
@@ -475,12 +570,12 @@ class _PrivateDoctorState extends State<PrivateDoctor> {
                                   },
                                   decoration: InputDecoration(
                                     labelStyle:
-                                        TextStyle(color: ColorManager.white),
+                                    TextStyle(color: ColorManager.white),
                                     fillColor: ColorManager.secondary,
                                     filled: true,
                                     hintText: AppStrings.writeMessage,
                                     hintStyle:
-                                        TextStyle(color: ColorManager.white50),
+                                    TextStyle(color: ColorManager.white50),
                                     hintTextDirection: TextDirection.rtl,
                                     suffixIcon: IconManager.file,
                                     prefixIcon: InkWell(
@@ -491,7 +586,7 @@ class _PrivateDoctorState extends State<PrivateDoctor> {
                                             'text': messageText,
                                             'sender': signedInUser.email,
                                             'time':
-                                                FieldValue.serverTimestamp(),
+                                            FieldValue.serverTimestamp(),
                                           });
                                           messageTextController.clear();
                                         },
@@ -587,12 +682,12 @@ class _PrivateDoctorState extends State<PrivateDoctor> {
                                   },
                                   decoration: InputDecoration(
                                     labelStyle:
-                                        TextStyle(color: ColorManager.white),
+                                    TextStyle(color: ColorManager.white),
                                     fillColor: ColorManager.secondary,
                                     filled: true,
                                     hintText: AppStrings.writeMessage,
                                     hintStyle:
-                                        TextStyle(color: ColorManager.white50),
+                                    TextStyle(color: ColorManager.white50),
                                     hintTextDirection: TextDirection.rtl,
                                     suffixIcon: IconManager.file,
                                     prefixIcon: InkWell(
@@ -603,7 +698,7 @@ class _PrivateDoctorState extends State<PrivateDoctor> {
                                             'text': messageText,
                                             'sender': signedInUser.email,
                                             'time':
-                                                FieldValue.serverTimestamp(),
+                                            FieldValue.serverTimestamp(),
                                           });
                                           messageTextController.clear();
                                         },
@@ -650,4 +745,5 @@ class _PrivateDoctorState extends State<PrivateDoctor> {
       ),
     );
   }
+
 }

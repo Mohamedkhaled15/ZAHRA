@@ -27,6 +27,8 @@ import '../../widget/register_by.dart';
 import '../home_screen/home_view.dart';
 import 'cubit/cubit.dart';
 import 'cubit/state.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
 
 class LogIn extends StatefulWidget {
 
@@ -37,6 +39,11 @@ class LogIn extends StatefulWidget {
 }
 
 class _LogInState extends State<LogIn> {
+
+  final _auth=FirebaseAuth.instance;
+  late String email;
+  late String password;
+
   final TextEditingController emailController = TextEditingController();
 
   final TextEditingController passwordController = TextEditingController();
@@ -139,10 +146,14 @@ class _LogInState extends State<LogIn> {
                                   prefixIconData: Icons.email_outlined,
                                   keyboardType: TextInputType.emailAddress,
                                   validateFun: (value) {
+
                                     if (value != null && value.isEmpty) {
                                       return "يرجي إدخال عنوان بريدك ألكتروني صحيح";
                                     }
                                     return null;
+                                  },
+                                  onChangeFun: (value){
+                                    email=value;
                                   },
                                 ),
                                 SizedBox(
@@ -171,7 +182,11 @@ class _LogInState extends State<LogIn> {
                                       );
                                     }
                                   },
+                                  onChangeFun: (value){
+                                    password=value;
+                                  },
                                   validateFun: (value) {
+
                                     if (value != null && value.isEmpty) {
                                       return "كلمة المرور قصيرة جدا";
                                     }
@@ -203,7 +218,14 @@ class _LogInState extends State<LogIn> {
                                               16,
                                       backGround: ColorManager.secondary,
                                       fontWight: FontWeight.bold,
-                                      onTap: () {
+                                      onTap: ()async {
+                                        try{
+                                          final user= await _auth.
+                                          signInWithEmailAndPassword(email: email, password: password);
+                                        }catch(error){
+                                          print(error);
+                                        }
+
                                         if (formKey.currentState!.validate()) {
                                           FocusScope.of(context).unfocus();
                                           closeKeyboard(con);
