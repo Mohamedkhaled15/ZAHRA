@@ -1,5 +1,6 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:zahra/presentation/resources/color_manager.dart';
 
 import '../../../core/constant/image_assets_manager.dart';
 import '../on_boarding/on_boarding_screen.dart';
@@ -11,6 +12,7 @@ class SplashAnimation extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Scaffold(
       body: AnimatedSplashScreen(
+        backgroundColor: ColorManager.primary,
 
         splash: AppImageAsset.logo,
         nextScreen: const OnBoardingScreen(),

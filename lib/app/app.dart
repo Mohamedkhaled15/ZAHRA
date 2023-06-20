@@ -24,29 +24,25 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<ShopCubit>(create: (_){
-
-      if (userToken == null) {
-        return ShopCubit();
-      }
-      else {
-        return ShopCubit()
-          ..getUserData();
-      }
-    },
-    child: BlocConsumer<ShopCubit, ShopStates>(
-
+    return BlocProvider<ShopCubit>(
+      create: (_) {
+        if (userToken == null) {
+          return ShopCubit();
+        } else {
+          return ShopCubit()..getUserData();
+        }
+      },
+      child: BlocConsumer<ShopCubit, ShopStates>(
         listener: (ctx, state) {},
-    builder: (ctx, state) {
-      // ShopCubit cubit = ShopCubit.get(ctx);
-      return GetMaterialApp(
-
-        debugShowCheckedModeBanner: false,
-        onGenerateRoute: RouteGenerator.getRoute,
-        initialRoute: Routes.splashRoute,
-        theme: getAppTheme(),
-      );
-    },
+        builder: (ctx, state) {
+          // ShopCubit cubit = ShopCubit.get(ctx);
+          return GetMaterialApp(
+            debugShowCheckedModeBanner: false,
+            onGenerateRoute: RouteGenerator.getRoute,
+            initialRoute: Routes.splashRoute,
+            theme: getAppTheme(),
+          );
+        },
       ),
     );
     // return GetMaterialApp(
@@ -61,6 +57,7 @@ class _MyAppState extends State<MyApp> {
     // );
   }
 }
+
 class MyHttpOverrides extends HttpOverrides {
   @override
   HttpClient createHttpClient(SecurityContext? context) {

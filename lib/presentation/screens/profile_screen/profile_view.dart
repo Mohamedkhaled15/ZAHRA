@@ -212,6 +212,7 @@ class _ProfileViewState extends State<ProfileView> {
                       cursorColor: ColorManager.secondary,
                       decoration: InputDecoration(
 
+
                         labelStyle:
                             TextStyle(color: ColorManager.lightSecondary),
                         fillColor: ColorManager.white,

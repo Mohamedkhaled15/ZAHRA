@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:zahra/core/constant/styles_manger.dart';
-import 'package:zahra/core/constant/values_manger.dart';
 
+import '../../presentation/resources/color_manager.dart';
+import '../../presentation/resources/font_manager.dart';
+import '../../presentation/resources/styles_manager.dart';
+import '../../presentation/resources/values_manager.dart';
 
-import 'colors_manager.dart';
-import 'font_manager.dart';
-
-ThemeData getAppTheme(){
+ThemeData getAppTheme() {
   return ThemeData(
-    // main colors
+      // main colors
       primaryColor: ColorManager.primary,
       primaryColorLight: ColorManager.secondary,
       primaryColorDark: ColorManager.darkPage,
@@ -22,16 +21,14 @@ ThemeData getAppTheme(){
         elevation: AppSize.s4,
       ),
 
-
       // app bar theme
-      appBarTheme: AppBarTheme(centerTitle: true,
+      appBarTheme: AppBarTheme(
+          centerTitle: true,
           color: ColorManager.secondary,
           elevation: AppSize.s4,
           shadowColor: ColorManager.lightSecondary,
-          titleTextStyle: getNormalStyle(color:ColorManager.white ,fontSize: FontSize.s16)
-      ),
-
-
+          titleTextStyle: getNormalStyle(
+              color: ColorManager.white, fontSize: FontSize.s16)),
 
       //button theme
       buttonTheme: ButtonThemeData(
@@ -43,58 +40,50 @@ ThemeData getAppTheme(){
       //elevated button theme
       elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-              textStyle: getNormalStyle(color: ColorManager.white,fontSize: FontSize.s18),
+              textStyle: getNormalStyle(
+                  color: ColorManager.white, fontSize: FontSize.s18),
               // backgroundColor: ColorManager.secondary,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(AppSize.s25),
-
-              )
-
-
-          )
-      ),
+              ))),
       //text theme
       textTheme: TextTheme(
-        headline1: getLightStyle(color: ColorManager.secondary,fontSize: FontSize.s32),
-        subtitle1: getNormalStyle(color: ColorManager.black,fontSize: FontSize.s16),
+        headline1: getLightStyle(
+            color: ColorManager.secondary, fontSize: FontSize.s32),
+        subtitle1:
+            getNormalStyle(color: ColorManager.black, fontSize: FontSize.s16),
         caption: getNormalStyle(color: ColorManager.white),
         bodyText1: getNormalStyle(color: ColorManager.gray),
-
-
-
       ),
-
-
-
-
 
       // input decoration theme (text form field)
       inputDecorationTheme: InputDecorationTheme(
-        //content padding
-          contentPadding:const EdgeInsets.all(AppPadding.p8),
-          hintStyle: getNormalStyle(color: ColorManager.secondary,fontSize: FontSize.s16),
+          //content padding
+          contentPadding: const EdgeInsets.all(AppPadding.p8),
+          hintStyle: getNormalStyle(
+              color: ColorManager.secondary, fontSize: FontSize.s16),
           //label style
-          labelStyle: getNormalStyle(color: ColorManager.darkSecondary,fontSize: FontSize.s16),
+          labelStyle: getNormalStyle(
+              color: ColorManager.darkSecondary, fontSize: FontSize.s16),
           errorStyle: getLightStyle(color: ColorManager.error),
-          enabledBorder:OutlineInputBorder(
-              borderSide: BorderSide(color: ColorManager.secondary,width: AppSize.s2),
-              borderRadius: const BorderRadius.all(Radius.circular(AppSize.s20))
-
-          ),
+          enabledBorder: OutlineInputBorder(
+              borderSide:
+                  BorderSide(color: ColorManager.secondary, width: AppSize.s2),
+              borderRadius:
+                  const BorderRadius.all(Radius.circular(AppSize.s20))),
           focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: ColorManager.darkSecondary,width: AppSize.s2),
-              borderRadius: const BorderRadius.all(Radius.circular(AppSize.s20))),
-
+              borderSide: BorderSide(
+                  color: ColorManager.darkSecondary, width: AppSize.s2),
+              borderRadius:
+                  const BorderRadius.all(Radius.circular(AppSize.s20))),
           errorBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: ColorManager.error,width: AppSize.s2),
-              borderRadius: const BorderRadius.all(Radius.circular(AppSize.s20))),
-
+              borderSide:
+                  BorderSide(color: ColorManager.error, width: AppSize.s2),
+              borderRadius:
+                  const BorderRadius.all(Radius.circular(AppSize.s20))),
           focusedErrorBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: ColorManager.darkSecondary,width: AppSize.s2),
-              borderRadius: const BorderRadius.all(Radius.circular(AppSize.s20)))
-
-      )
-
-  );
-
+              borderSide: BorderSide(
+                  color: ColorManager.darkSecondary, width: AppSize.s2),
+              borderRadius:
+                  const BorderRadius.all(Radius.circular(AppSize.s20)))));
 }

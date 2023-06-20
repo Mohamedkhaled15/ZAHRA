@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:zahra/layout/shop_layout/cubit/state.dart';
-import 'package:zahra/view/screens/doctor_screen/doctor_view.dart';
+
 import 'package:zahra/view/screens/main_screen/main_view.dart';
 
 import '../../../data/model/data_model/returned_data_model.dart';
+import '../../../presentation/screens/notification_screen/notification_view.dart';
 import '../../../presentation/screens/profile_screen/profile_view.dart';
 import '../../../view/screens/home_screen/home_view.dart';
-import '../../../view/screens/notification_screen/notification_view.dart';
+
 
 import '../../../view/screens/setting_screen/setting_view.dart';
 import '/shared/network/local/cache_helper.dart';

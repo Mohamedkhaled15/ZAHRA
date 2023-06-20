@@ -10,29 +10,21 @@ import 'package:zahra/shared/network/remote/dio_helper.dart';
 import 'app/app.dart';
 import 'my_bloc_observe.dart';
 
-void main() async{
-
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   HttpOverrides.global = MyHttpOverrides();
   DioHelper.init();
-
   await CacheHelper.init();
   userToken = CacheHelper.getDataFromSharedPreferences(key: 'userToken');
   debugPrint('Token --> $userToken');
   BlocOverrides.runZoned(
-        () {
+    () {
       // Use cubits...
-      runApp( MyApp());
+      runApp(MyApp());
     },
     blocObserver: MyBlocObserver(),
   );
 
-
-
   runApp(MyApp());
-
-
 }
-
-

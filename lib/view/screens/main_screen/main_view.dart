@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 
 import '../../../core/constant/colors_manager.dart';
 import '../../../core/constant/image_assets_manager.dart';
+import '../../../presentation/screens/notification_screen/notification_view.dart';
+import '../../../presentation/screens/profile_screen/profile_view.dart';
 import '../home_screen/home_view.dart';
-import '../notification_screen/notification_view.dart';
-import '../profile_screen/profile_view.dart';
+
+
 
 class MainView extends StatefulWidget {
 
