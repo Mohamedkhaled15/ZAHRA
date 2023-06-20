@@ -11,7 +11,7 @@ class AppImageAsset {
   static const String onBoardingImageTwo    = "$rootImages/on_boarding_two.png" ;
   static const String onBoardingImageThree  = "$rootImages/on_boarding_three.png" ;
   static const String onBoardingImageFour = "$rootImages/on_boarding_four.png" ;
-  static const splashImage = "$rootImages/splash_one.PNG";
+  static const splashImage = "$rootImages/splash.png";
   static const welcomeScreen = "$rootImages/welcomescreen.png";
   static String noNotification="$rootImages/noNotification.png";
   static String doctorLogo="$rootImages/doctor1.png";
@@ -27,7 +27,7 @@ class AppImageAsset {
   static String doctorLogo2="$rootImages/Doctor2.png";
   static String medicine2="$rootImages/medicine2.png";
 
-  static const logo = "$rootImages/Logo.jpeg";
+  static const logo = "$rootImages/Logo.png";
   static const google = "$rootImages/google.png";
   static const faceBook = "$rootImages/facebook.png";
   static const dailyCheckUp = "$rootImages/daily_logo.png";
