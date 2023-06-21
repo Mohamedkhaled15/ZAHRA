@@ -1,5 +1,6 @@
 import 'package:avatar_view/avatar_view.dart';
 import 'package:flutter/material.dart';
+import 'package:zahra/presentation/component/variables.dart';
 
 import '../resources/assets_manager.dart';
 import '../resources/color_manager.dart';
@@ -7,10 +8,20 @@ import '../resources/font_manager.dart';
 import '../resources/strings_manager.dart';
 import '../resources/styles_manager.dart';
 import '../resources/values_manager.dart';
+import '../screens/doctor_screen/tabs/reversation/reverse_controller.dart';
 
-class ReservationCard extends StatelessWidget {
+class ReservationCard extends StatefulWidget {
    final String? title;
+
   const ReservationCard({super.key, this.title});
+
+  @override
+  State<ReservationCard> createState() => _ReservationCardState();
+}
+
+class _ReservationCardState extends State<ReservationCard> {
+   ReverseController controller = ReverseController();
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -38,7 +49,7 @@ class ReservationCard extends StatelessWidget {
                   children: [
                     Center(
                       child: Text(
-                        title!,
+                        widget.title!,
                         style: getNormalStyle(color: ColorManager.white),
 
                       ),
@@ -78,17 +89,22 @@ class ReservationCard extends StatelessWidget {
                           textAlign: TextAlign.end,
                           TextSpan(children: [
                             TextSpan(
-                              text: AppStrings.docName,
+                              text: controller.doctorCard['name']![selectedIndex],
                               style: getNormalStyle(
-                                  fontSize: FontSize.s14,
+                                  fontSize: FontSize.s20,
                                   color: ColorManager.darkSecondary,
                                   height: 3),
                             ),
+                            const TextSpan(
+                                text: "\n"
+
+                            ),
                             TextSpan(
-                                text: AppStrings.docDescription,
+                                text: controller.doctorCard['description']![selectedIndex],
+
                                 style: getLightStyle(
                                   color: ColorManager.secondary,
-                                  fontSize: FontSize.s10,
+                                  fontSize: FontSize.s12,
                                 )),
                           ]),
                           style: const TextStyle(height: 1),
@@ -111,7 +127,8 @@ class ReservationCard extends StatelessWidget {
                           child: AvatarView(
                             radius: 30,
                             avatarType: AvatarType.CIRCLE,
-                            imagePath: ImageAssets.me,
+                            imagePath:controller.doctorCard['image']?[selectedIndex],
+
                           ),
                         ),
                       ],
@@ -139,10 +156,11 @@ class ReservationCard extends StatelessWidget {
                     ),
                     SizedBox(height: MediaQuery.of(context).size.height/120,),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        Text(
-                          AppStrings.docSpic,
+                        Text(controller.doctorCard['specialization']![selectedIndex],
+
+
                           style: getLightStyle(
                               color: ColorManager.secondary, fontSize: FontSize.s12),
                         ),
@@ -152,14 +170,15 @@ class ReservationCard extends StatelessWidget {
                           color: ColorManager.darkSecondary,
                           scale: 5,
                         ),
+                        SizedBox(width: MediaQuery.of(context).size.width/8,)
                       ],
                     ),
                     SizedBox(height: MediaQuery.of(context).size.height/100,),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         Text(
-                          AppStrings.appointmentLoc,
+                          controller.doctorCard['location']![selectedIndex],
                           style: getLightStyle(
                               color: ColorManager.secondary, fontSize: FontSize.s12),
                         ),
@@ -169,6 +188,7 @@ class ReservationCard extends StatelessWidget {
                           color: ColorManager.darkSecondary,
                           scale: 5,
                         ),
+                        SizedBox(width: MediaQuery.of(context).size.width/8,)
                       ],
                     ),
                     SizedBox(height: MediaQuery.of(context).size.height/100,),
@@ -176,7 +196,7 @@ class ReservationCard extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         Text(
-                          AppStrings.bookingCost1,
+                          controller.doctorCard['cost']![selectedIndex],
                           style: getLightStyle(
                               color: ColorManager.secondary, fontSize: FontSize.s12),
                         ),
@@ -186,7 +206,7 @@ class ReservationCard extends StatelessWidget {
                           color: ColorManager.darkSecondary,
                           scale: 20,
                         ),
-                        SizedBox(width: MediaQuery.of(context).size.width/9,),
+                        SizedBox(width: MediaQuery.of(context).size.width/8,),
                       ],
                     ),
                     SizedBox(height: MediaQuery.of(context).size.height/100,),

@@ -9,14 +9,14 @@ const String imagePath="assets/images";
 
 class ImageAssets{
  static String doctorLogo="$imagePath/doctor1.png";
- static String doctorLogo2="$imagePath/doctor2.png";
+ static String doctorLogo2="$imagePath/Doctor2.png";
  static String essaysIcon="$imagePath/essaysIcon.png";
  static String groupLogo="$imagePath/group.png";
  static String medicalCheckupLogo2="$imagePath/medicalCheckup2.png";
  static String medicineLogo="$imagePath/medicine.png";
  static String noNotification="$imagePath/noNotification.png";
  static String newI="$imagePath/new.png";
- static String searching="$imagePath/searching.png";
+ static String searching="$imagePath/Searching.png";
  static String article="$imagePath/article.png";
  static String medicine2="$imagePath/medicine2.png";
  static String medicalCheckupLogo="$imagePath/mc.png";

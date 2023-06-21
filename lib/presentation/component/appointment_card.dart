@@ -1,5 +1,6 @@
 import 'package:avatar_view/avatar_view.dart';
 import 'package:flutter/material.dart';
+import 'package:zahra/presentation/component/variables.dart';
 
 import '../resources/assets_manager.dart';
 import '../resources/color_manager.dart';
@@ -7,16 +8,36 @@ import '../resources/font_manager.dart';
 import '../resources/strings_manager.dart';
 import '../resources/styles_manager.dart';
 import '../resources/values_manager.dart';
+import '../screens/doctor_screen/tabs/reversation/reservation_view.dart';
+import '../screens/doctor_screen/tabs/reversation/reverse_controller.dart';
 
-class AppointmentCard extends StatelessWidget {
-  const AppointmentCard({Key? key}) : super(key: key);
+class AppointmentCard extends StatefulWidget {
+  const AppointmentCard({super.key});
+
+  @override
+  State<AppointmentCard> createState() => _AppointmentCardState();
+}
+
+class _AppointmentCardState extends State<AppointmentCard> {
+  ReverseController controller = ReverseController();
+
+
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+  }
+
+
 
   @override
   Widget build(BuildContext context) {
     return  AspectRatio(
       aspectRatio: 4.1/3,
       child: Padding(
-        padding:  EdgeInsets.symmetric(horizontal: AppPadding.p14,vertical: AppPadding.p8),
+        padding:  const EdgeInsets.symmetric(horizontal: AppPadding.p14,vertical: AppPadding.p8),
         child: Column(
           children: [
             Container(
@@ -32,7 +53,7 @@ class AppointmentCard extends StatelessWidget {
                   BoxShadow(
                       color: ColorManager.gray, //New
                       blurRadius: 1.0,
-                      offset: Offset(1, 1),
+                      offset: const Offset(1, 1),
                       spreadRadius: 1)
                 ],
               ),
@@ -46,17 +67,22 @@ class AppointmentCard extends StatelessWidget {
                         textAlign: TextAlign.end,
                         TextSpan(children: [
                           TextSpan(
-                            text: AppStrings.docName,
+                            text: controller.doctorCard['name']![selectedIndex],
+
                             style: getNormalStyle(
-                                fontSize: FontSize.s14,
+                                fontSize: FontSize.s20,
                                 color: ColorManager.darkSecondary,
                                 height: 3),
                           ),
+                          const TextSpan(
+                            text: "\n"
+
+                          ),
                           TextSpan(
-                              text: AppStrings.docDescription,
+                              text: controller.doctorCard['description']![selectedIndex],
                               style: getLightStyle(
                                 color: ColorManager.secondary,
-                                fontSize: FontSize.s10,
+                                fontSize: FontSize.s14,
                               )),
                         ]),
                         style: const TextStyle(height: 1),
@@ -79,7 +105,8 @@ class AppointmentCard extends StatelessWidget {
                         child: AvatarView(
                           radius: 30,
                           avatarType: AvatarType.CIRCLE,
-                          imagePath: ImageAssets.me,
+                          imagePath: controller.doctorCard['image']?[selectedIndex],
+
                         ),
                       ),
                     ],
@@ -107,10 +134,10 @@ class AppointmentCard extends StatelessWidget {
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height/120,),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Text(
-                        AppStrings.docSpic,
+                        controller.doctorCard['description']![selectedIndex],
                         style: getLightStyle(
                             color: ColorManager.secondary, fontSize: FontSize.s12),
                       ),
@@ -120,14 +147,16 @@ class AppointmentCard extends StatelessWidget {
                         color: ColorManager.darkSecondary,
                         scale: 5,
                       ),
+                      SizedBox(width: MediaQuery.of(context).size.width/9,),
+
                     ],
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height/100,),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Text(
-                        AppStrings.appointmentLoc,
+                  controller.doctorCard['location']![selectedIndex],
                         style: getLightStyle(
                             color: ColorManager.secondary, fontSize: FontSize.s12),
                       ),
@@ -137,6 +166,7 @@ class AppointmentCard extends StatelessWidget {
                         color: ColorManager.darkSecondary,
                         scale: 5,
                       ),
+                      SizedBox(width: MediaQuery.of(context).size.width/9,),
                     ],
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height/100,),
@@ -162,7 +192,7 @@ class AppointmentCard extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Text(
-                        AppStrings.bookingCost2,
+                        controller.doctorCard['cost']![selectedIndex],
                         style: getLightStyle(
                             color: ColorManager.secondary, fontSize: FontSize.s12),
                       ),

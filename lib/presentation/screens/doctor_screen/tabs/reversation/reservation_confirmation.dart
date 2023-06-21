@@ -17,87 +17,91 @@ class ReservationConfirm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(child: Scaffold(
+    return Scaffold(
       backgroundColor: ColorManager.primary,
       endDrawer: Drawer(
         backgroundColor: ColorManager.darkPage,
         child: const ItemDrawer(),
-
       ),
-      body: Column(
-        children: [
-          AspectRatio(
-            aspectRatio: 6/2,
-            child: Container(
+      body: SafeArea(
+        child: ListView(
+          children: [
+            Column(
+              children: [
+                AspectRatio(
+                  aspectRatio: 6/2,
+                  child: Container(
 
-              decoration: BoxDecoration(
-                color: ColorManager.primary,
-                boxShadow: [
-                  BoxShadow(
-                    // color: ColorManager.primary,
-                    color: Colors.grey.withOpacity(0.3),
-                    spreadRadius: 1,
-                    blurRadius: 5,
-                    offset: const Offset(0, 1),
-                    // changes position of shadow
-                  ),
-                ],
-              ),
-              child: Column(
-
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(right: AppPadding.p14),
-                    child: Align(
-                      alignment: Alignment.topRight,
-                      child: Builder(builder: (context) {
-                        return GestureDetector(
-                            onTap: () {
-                              Scaffold.of(context).openEndDrawer();
-                            },
-                            child: IconManager.drawer);
-                      }),
+                    decoration: BoxDecoration(
+                      color: ColorManager.primary,
+                      boxShadow: [
+                        BoxShadow(
+                          // color: ColorManager.primary,
+                          color: Colors.grey.withOpacity(0.3),
+                          spreadRadius: 1,
+                          blurRadius: 5,
+                          offset: const Offset(0, 1),
+                          // changes position of shadow
+                        ),
+                      ],
                     ),
+                    child: Column(
+
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(right: AppPadding.p14),
+                          child: Align(
+                            alignment: Alignment.topRight,
+                            child: Builder(builder: (context) {
+                              return GestureDetector(
+                                  onTap: () {
+                                    Scaffold.of(context).openEndDrawer();
+                                  },
+                                  child: IconManager.drawer);
+                            }),
+                          ),
+                        ),
+                        const Spacer(),
+                        Text(
+                          AppStrings.confirmRes,
+                          style:getBoldStyle(
+                              color: ColorManager.darkSecondary,
+                              fontSize: AppSize.s32),
+                        ),
+
+
+                      ],
+                    ),
+
                   ),
-                  const Spacer(),
-                  Text(
-                    AppStrings.confirmRes,
-                    style:getBoldStyle(
-                        color: ColorManager.darkSecondary,
-                        fontSize: AppSize.s32),
+                ),
+                const ReservationCard(
+                  title: AppStrings.appointInOffice,
+                ),
+                Center(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 40),
+                    child: Text(AppStrings.appointmentHint,style: getLightStyle(color: ColorManager.gray,fontSize: FontSize.s20),textAlign: TextAlign.center,),
                   ),
-
-
-                ],
-              ),
-
+                ),
+                const SizedBox(
+                  height: 60,
+                ),
+                ContinueButton(text: AppStrings.confirmRes,routes: Routes.continueRev,),
+                const SizedBox(
+                  height: 10,
+                ),
+                TextButton(
+                  onPressed: (){
+                    Navigator.pop(context);
+                  },
+                  child: Text(AppStrings.declineRes,style: getNormalStyle(color: ColorManager.darkSecondary),),
+                ),
+              ],
             ),
-          ),
-          ReservationCard(
-            title: AppStrings.appointInOffice,
-          ),
-          Center(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 40),
-              child: Text(AppStrings.appointmentHint,style: getLightStyle(color: ColorManager.gray,fontSize: FontSize.s20),textAlign: TextAlign.center,),
-            ),
-          ),
-          const SizedBox(
-            height: 60,
-          ),
-          ContinueButton(text: AppStrings.confirmRes,routes: Routes.continueRev,),
-          const SizedBox(
-            height: 10,
-          ),
-          TextButton(
-            onPressed: (){
-              Navigator.pop(context);
-            },
-            child: Text(AppStrings.declineRes,style: getNormalStyle(color: ColorManager.darkSecondary),),
-          ),
-        ],
+          ],
+        ),
       ),
-    )
     );
   }
 }

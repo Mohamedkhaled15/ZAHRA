@@ -3,14 +3,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:zahra/layout/shop_layout/main_layout.dart';
-import '../core/constant/app_theme.dart';
+import 'package:zahra/presentation/resources/theme_manager.dart';
 import '../core/constant/colors_manager.dart';
 import '../core/constant/routes_manager.dart';
 import '../layout/shop_layout/cubit/cubit.dart';
 import '../layout/shop_layout/cubit/state.dart';
 import '../shared/constant/constant.dart';
-
+import 'package:dio/dio.dart';
 class MyApp extends StatefulWidget {
+
+
+
+
+
+
 //named constructor
   const MyApp._internal();
 
@@ -39,7 +45,7 @@ class _MyAppState extends State<MyApp> {
           return GetMaterialApp(
             debugShowCheckedModeBanner: false,
             onGenerateRoute: RouteGenerator.getRoute,
-            initialRoute: Routes.splashRoute,
+            initialRoute: Routes.mainLayout,
             theme: getAppTheme(),
           );
         },

@@ -4,7 +4,7 @@ import 'package:zahra/presentation/resources/assets_manager.dart';
 import 'package:zahra/presentation/resources/color_manager.dart';
 import 'package:zahra/presentation/resources/styles_manager.dart';
 import 'package:zahra/presentation/screens/doctor_screen/tabs/private_doctor/private_doctor.dart';
-import 'package:zahra/presentation/screens/doctor_screen/tabs/reversation/reservation.dart';
+import 'package:zahra/presentation/screens/doctor_screen/tabs/reversation/reservation_view.dart';
 import 'package:zahra/presentation/screens/doctor_screen/tabs/search_for_doctor.dart';
 import '../../resources/font_manager.dart';
 import '../../resources/strings_manager.dart';
@@ -85,7 +85,7 @@ class DoctorView extends StatelessWidget {
                     //  TabBar(tabs: ),
                   ]),
                 ),
-                 const Expanded(
+                  Expanded(
                     child: TabBarView(
                       physics: BouncingScrollPhysics(),
                         children: [

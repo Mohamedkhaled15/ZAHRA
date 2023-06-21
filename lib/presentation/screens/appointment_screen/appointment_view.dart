@@ -10,6 +10,7 @@ import '../../resources/font_manager.dart';
 import '../../resources/strings_manager.dart';
 import '../../resources/styles_manager.dart';
 import '../../resources/values_manager.dart';
+import '../doctor_screen/tabs/reversation/reverse_controller.dart';
 
 class Appointment extends StatefulWidget {
   const Appointment({Key? key}) : super(key: key);
@@ -19,6 +20,7 @@ class Appointment extends StatefulWidget {
 }
 
 class _AppointmentState extends State<Appointment> {
+
   AppointmentController controller=AppointmentController();
   DateTime _selectedDateTime = DateTime.now();
   @override
@@ -82,7 +84,7 @@ class _AppointmentState extends State<Appointment> {
 
                   ),
                 ),
-                const AppointmentCard(),
+                 AppointmentCard(),
 
 
                 SizedBox(
