@@ -7,6 +7,7 @@ import 'package:zahra/presentation/resources/values_manager.dart';
 import '../../../../component/item_drawer.dart';
 import '../../../../component/page_head.dart';
 import '../../../../component/pay_way_card.dart';
+import '../../../../component/variables.dart';
 import '../../../../resources/assets_manager.dart';
 import '../../../../resources/color_manager.dart';
 import '../../../../resources/font_manager.dart';
@@ -93,7 +94,12 @@ class _CallDetailsState extends State<CallDetails> {
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: AppPadding.p14),
                           child: TextFormField(
-
+                           onChanged: (value){
+                             selectedName=value;
+                           },
+                            // onSaved: (value){
+                            //  selectedName="";
+                            // },
                             style: TextStyle(
                                 color: ColorManager.darkSecondary,
                                 fontSize: FontSize.s22,
@@ -119,6 +125,7 @@ class _CallDetailsState extends State<CallDetails> {
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: AppPadding.p14),
                           child: TextFormField(
+
                             keyboardType: TextInputType.phone,
                             inputFormatters: [
                               FilteringTextInputFormatter.digitsOnly,
@@ -134,6 +141,7 @@ class _CallDetailsState extends State<CallDetails> {
                               return null;
                             },
                             onSaved: (value) {
+                              selectedPhone=value! as int;
                               // Do something with the phone number value
                             },
                             style: TextStyle(
@@ -151,7 +159,6 @@ class _CallDetailsState extends State<CallDetails> {
                                 children:  [
                                 SizedBox(width: 20,),
                                 DropdownButton(
-
                                   underline: Container(),
                                   icon: IconManager.dArrow,
                                   style: getLightStyle(color: ColorManager.darkSecondary,fontSize: FontSize.s22),
@@ -163,8 +170,8 @@ class _CallDetailsState extends State<CallDetails> {
                                     );
                                   }).toList(),
                                   onChanged: (String?newValue) {
-
                                       setState(() {
+
                                         _selectedPhoneCode =  newValue!;
                                       });
 
@@ -203,6 +210,7 @@ class _CallDetailsState extends State<CallDetails> {
                   image: ImageAssets.fawry,
                   title:AppStrings.fawry ,
                   subtitle:AppStrings.fawrySubTitle ,
+
                    route: Routes.payFawry,
 
                 ),

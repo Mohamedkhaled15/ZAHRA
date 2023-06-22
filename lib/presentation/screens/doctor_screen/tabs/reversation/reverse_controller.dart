@@ -7,10 +7,11 @@ class ReverseController {
       'assets/images/me.jpg',
       'assets/images/doctor3.jpg',
       'assets/images/doctorah.jpg',
-      'assets/images/me.jpg',
-      'assets/images/doctor3.jpg',
-      'assets/images/doctorah.jpg',
-      'assets/images/doctorah.jpg',
+      'assets/images/doca.jpeg',
+      'assets/images/doc1.jpeg',
+      'assets/images/docw.jpeg',
+      'assets/images/docc.jpeg',
+
     ],
     'name': [
       'دكتور خالد الغنيمي',

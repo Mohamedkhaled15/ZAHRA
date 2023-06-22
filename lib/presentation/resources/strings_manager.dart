@@ -87,7 +87,7 @@ static const docHint='اكتب اسم الطبيب...';
   static const creditCardLabel='المبلغ المطلوب 50 جنيه   ';
   static const fawrySubTitle='  +5 جنيه مصاريف فوري';
   static const creditSubTitle=' فيزا أو ماستركارد';
-  static const callDetails='تفاصيل المكالمة ';
+  static const callDetails='تفاصيل الحجز ';
   static const choseWayToPay='اختر طريقة الدفع المناسبة لك ';
   ////creditCard
   static const creditNumber='رقم البطاقة ';

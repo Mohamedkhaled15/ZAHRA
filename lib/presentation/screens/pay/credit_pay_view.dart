@@ -3,16 +3,18 @@ import 'package:flutter/material.dart';
 import '../../component/continue_button.dart';
 import '../../component/item_drawer.dart';
 import '../../component/page_head.dart';
+import '../../component/variables.dart';
 import '../../resources/color_manager.dart';
 import '../../resources/font_manager.dart';
 import '../../resources/routes_manager.dart';
 import '../../resources/strings_manager.dart';
 import '../../resources/styles_manager.dart';
 import '../../resources/values_manager.dart';
+import '../doctor_screen/tabs/reversation/reverse_controller.dart';
 
 class CreditPay extends StatelessWidget {
-  const CreditPay({Key? key}) : super(key: key);
 
+  ReverseController controller = ReverseController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,7 +49,7 @@ class CreditPay extends StatelessWidget {
                 ),
                 child: Center(
                   child: Text(
-                    AppStrings.creditCardLabel,
+                    controller.doctorCard['cost']![selectedIndex],
                     style: getBoldStyle(color: ColorManager.white,fontSize: FontSize.s22),),
                 ),
               ),

@@ -87,7 +87,7 @@ class ReservationConfirm extends StatelessWidget {
                 const SizedBox(
                   height: 60,
                 ),
-                ContinueButton(text: AppStrings.confirmRes,routes: Routes.continueRev,),
+                ContinueButton(text: AppStrings.confirmRes,routes:Routes.callDetails,),
                 const SizedBox(
                   height: 10,
                 ),

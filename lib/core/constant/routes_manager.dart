@@ -97,9 +97,9 @@ class RouteGenerator {
       case Routes.callDetails:
         return MaterialPageRoute(builder: (_) =>  CallDetails());
       case Routes.payFawry:
-        return MaterialPageRoute(builder: (_) =>  const PayFawry());
+        return MaterialPageRoute(builder: (_) =>  PayFawry());
       case Routes.creditPay:
-        return MaterialPageRoute(builder: (_) =>  const CreditPay());
+        return MaterialPageRoute(builder: (_) =>   CreditPay());
       case Routes.done:
         return MaterialPageRoute(builder: (_) =>  const Done());
       case Routes.privateDoctor:

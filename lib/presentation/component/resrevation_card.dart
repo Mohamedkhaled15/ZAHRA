@@ -8,6 +8,7 @@ import '../resources/font_manager.dart';
 import '../resources/strings_manager.dart';
 import '../resources/styles_manager.dart';
 import '../resources/values_manager.dart';
+import '../screens/appointment_screen/appointment_controller.dart';
 import '../screens/doctor_screen/tabs/reversation/reverse_controller.dart';
 
 class ReservationCard extends StatefulWidget {
@@ -21,7 +22,7 @@ class ReservationCard extends StatefulWidget {
 
 class _ReservationCardState extends State<ReservationCard> {
    ReverseController controller = ReverseController();
-
+   AppointmentController controller2=AppointmentController();
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -58,7 +59,7 @@ class _ReservationCardState extends State<ReservationCard> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        Text(AppStrings.date,style: getLightStyle(color: ColorManager.white,fontSize:FontSize.s16 ),),
+                        Text(controller2.dates[selectedDate],style: getLightStyle(color: ColorManager.white,fontSize:FontSize.s16 ),),
                         Text(AppStrings.month,style: getLightStyle(color: ColorManager.white,fontSize:FontSize.s16),),
                         Text(AppStrings.day,style: getLightStyle(color: ColorManager.white,fontSize:FontSize.s16),),
 

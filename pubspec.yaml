@@ -33,11 +33,8 @@ dependencies:
   shared_preferences:
   flutter_custom_tab_bar:
   avatar_view:
-  flutter_launcher_icons:
   flutter:
     sdk: flutter
-
-
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
@@ -60,11 +57,15 @@ dependencies:
   bloc:
   flutter_bloc:
   modal_progress_hud_nsn:
-
-
+  flutter_launcher_icons:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+flutter_icons:
+  android: true
+  image_path: "assets/images/Logo.png"
+  #flutter pub run flutter_launcher_icons:main
 
 
   # The "flutter_lints" package below contains a set of recommended lints to

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zahra/presentation/component/variables.dart';
 
 import '../resources/assets_manager.dart';
 import '../resources/color_manager.dart';
@@ -19,7 +20,9 @@ final String route;
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-        Navigator.pushNamed(context, route);
+        if(selectedName.isNotEmpty){
+          Navigator.pushNamed(context, route);
+        }
       },
       child: Padding(
         padding:  EdgeInsets.symmetric(horizontal: AppPadding.p14),

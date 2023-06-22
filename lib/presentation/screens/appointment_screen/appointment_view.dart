@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zahra/presentation/component/calender.dart';
+import 'package:zahra/presentation/component/variables.dart';
 import 'package:zahra/presentation/resources/routes_manager.dart';
 import 'package:zahra/presentation/screens/appointment_screen/appointment_controller.dart';
 import '../../component/appointment_card.dart';
@@ -112,7 +113,7 @@ class _AppointmentState extends State<Appointment> {
                             )
                         ),
                           child: TextButton(onPressed: (){
-                            Navigator.pushNamed(context, Routes.callDetails);
+                            Navigator.pushNamed(context, Routes.continueRev);
                           }, child: Text(AppStrings.phoneCall,style: getNormalStyle(color: ColorManager.darkSecondary,fontSize: FontSize.s18,))),),
 
                       Container(
@@ -203,14 +204,20 @@ class _AppointmentState extends State<Appointment> {
                       mainAxisSpacing: AppSize.s10,
                       mainAxisExtent: 47,
                     ) ,
-                    itemBuilder:(context,index)=> Container(
-                      height: 30,
-                      width: 40,
-                      decoration:BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        color: ColorManager.white
-                      ) ,
-                      child: Center(child: Text(controller.dates[index],style: getNormalStyle(color: ColorManager.darkSecondary),)),
+                    itemBuilder:(context,index)=> GestureDetector(
+                      onTap: (){
+                        selectedDate=index;
+                        Navigator.pushNamed(context, Routes.reservationConfirm);
+                      },
+                      child: Container(
+                        height: 30,
+                        width: 40,
+                        decoration:BoxDecoration(
+                          borderRadius: BorderRadius.circular(30),
+                          color: ColorManager.white
+                        ) ,
+                        child: Center(child: Text(controller.dates[index],style: getNormalStyle(color: ColorManager.darkSecondary),)),
+                      ),
                     ),
                   ),
                 ),

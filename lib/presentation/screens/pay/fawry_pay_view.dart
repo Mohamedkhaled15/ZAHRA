@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zahra/presentation/component/variables.dart';
 
 
 import '../../component/continue_button.dart';
@@ -11,10 +12,11 @@ import '../../resources/routes_manager.dart';
 import '../../resources/strings_manager.dart';
 import '../../resources/styles_manager.dart';
 import '../../resources/values_manager.dart';
+import '../doctor_screen/tabs/reversation/reverse_controller.dart';
 
 class PayFawry extends StatelessWidget {
-  const PayFawry({Key? key}) : super(key: key);
 
+  ReverseController controller = ReverseController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,7 +50,7 @@ class PayFawry extends StatelessWidget {
                     ),
                     child: Center(
                       child: Text(
-                        AppStrings.creditCardLabel,
+                          controller.doctorCard['cost']![selectedIndex],
                         style: getBoldStyle(color: ColorManager.white,fontSize: FontSize.s22),),
                     ),
                   ),
