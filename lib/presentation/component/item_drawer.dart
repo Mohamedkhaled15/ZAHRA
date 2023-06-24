@@ -5,7 +5,10 @@ import 'package:zahra/presentation/resources/strings_manager.dart';
 import 'package:zahra/presentation/resources/styles_manager.dart';
 
 
+import '../../shared/constant/constant.dart';
 import '../../view/widget/button_logout.dart';
+import '../resources/routes_manager.dart';
+import '../resources/values_manager.dart';
 import 'drawer_line.dart';
 
 class ItemDrawer extends StatelessWidget {
@@ -34,7 +37,22 @@ class ItemDrawer extends StatelessWidget {
                   ),
                       InkWell(
                         onTap: (){
-                          const ButtonLogoutItem();
+                          showDialog(context: context, builder:  (BuildContext context){
+                            return AlertDialog(
+                              content: Text("تسجيل الخروج",style: TextStyle(
+                                color: ColorManager.darkSecondary,
+                                fontSize: AppSize.s24,
+                              ),),
+                              actions: [
+                                TextButton(onPressed: (){
+                                  Navigator.of(context).pop();
+                                }, child: ( Text("No",style: getNormalStyle(color: ColorManager.darkSecondary),)),),
+                                TextButton(onPressed: (){
+                                  Navigator.pushNamed(context, Routes.loginRoute);
+                                }, child: ( Text("Yes",style: getNormalStyle(color: ColorManager.darkSecondary),)),),
+                              ],
+                            );
+                          },);
                         },
                           child: DrawerLine(title:AppStrings.logout,image: ImageAssets.logout)),
             ],

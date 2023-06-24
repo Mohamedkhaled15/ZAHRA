@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:zahra/core/constant/strings_manger.dart';
 import 'package:zahra/layout/shop_layout/main_layout.dart';
-import '../../presentation/screens/addInfo_screen/addInfo_view.dart';
+
+import '../../presentation/screens/addInfo_screen/add_info_view.dart';
 import '../../presentation/screens/appointment_screen/appointment_view.dart';
 import '../../presentation/screens/dalyCheckup_screen/dalyChecup_view.dart';
 import '../../presentation/screens/doctor_screen/doctor_view.dart';
@@ -75,13 +76,13 @@ class RouteGenerator {
       case Routes.doctorRoute:
         return MaterialPageRoute(builder: (_) => const DoctorView());
       case Routes.addInfoRoute:
-        return MaterialPageRoute(builder: (_) => const AddInfoView());
+        return MaterialPageRoute(builder: (_) =>  AddInfoView());
       case Routes.dalyCheckupRoute:
         return MaterialPageRoute(builder: (_) => const DalyCheckupView());
       case Routes.medicineRoute:
         return MaterialPageRoute(builder: (_) => MedicineView());
       case Routes.addInfoRoute:
-        return MaterialPageRoute(builder: (_) => const AddInfoView());
+        return MaterialPageRoute(builder: (_) =>  AddInfoView());
       case Routes.notificationRoute:
         return MaterialPageRoute(builder: (_) => const NotificationView());
       case Routes.profileRoute:

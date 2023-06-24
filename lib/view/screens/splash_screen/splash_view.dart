@@ -33,7 +33,7 @@ class _SplashViewState extends State<SplashView> {
     return Scaffold(
       backgroundColor: ColorManager.primary,
       body: Center(
-        child: Image.asset(AppImageAsset.splashImage),
+        child: Image.asset(AppImageAsset.splashImage,scale: 2,),
       ),
     );
   }

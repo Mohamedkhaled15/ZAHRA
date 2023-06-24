@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:zahra/presentation/component/variables.dart';
 import 'package:zahra/presentation/screens/profile_screen/profile_controller.dart';
 import '../../component/item_drawer.dart';
 import '../../resources/assets_manager.dart';
@@ -35,17 +36,17 @@ class _ProfileViewState extends State<ProfileView> {
         _name = sharedPreferences.getString('key_name')!;
       }
       else{
-        _name=' enter your name';
+        _name=loggedName;
       }
       if(sharedPreferences.getString('key_email')!=null&&sharedPreferences.getString('key_email')!.isNotEmpty) {
         _email = sharedPreferences.getString('key_email')!;
       }else{
-        _email=' enter your email';
+        _email=loggedEmail;
       }
       if(sharedPreferences.getString('key_password')!=null&&sharedPreferences.getString('key_password')!.isNotEmpty) {
         _password = sharedPreferences.getString('key_password')!;
       }else{
-        _password='enter your password';
+        _password=loggedPassword;
       }
     });
   }
@@ -245,7 +246,9 @@ class _ProfileViewState extends State<ProfileView> {
                           fontFamily: 'Poppins'),
                       //name
                       onChanged: (value){
+
                         controller.name=value;
+                        loggedName=value;
                       },
                       cursorColor: ColorManager.secondary,
                       decoration: InputDecoration(
@@ -285,6 +288,7 @@ class _ProfileViewState extends State<ProfileView> {
 
                         //email
                       onChanged: (value) {
+                        loggedEmail=value;
                         controller.email=value;
                       },
 
@@ -320,6 +324,7 @@ class _ProfileViewState extends State<ProfileView> {
                     child: TextFormField(
                       //password
                       onChanged: (value) {
+                        loggedPassword=value;
                         controller.password=value;
                       },
 
@@ -383,7 +388,9 @@ class _ProfileViewState extends State<ProfileView> {
                 child: ListView.builder(
                   itemCount: 4,
                   itemBuilder: (context, index) => InkWell(
-                    onTap: () {},
+                    onTap: () {
+                     Navigator.pushNamed(context, controller.nav[index]) ;
+                    },
                     child: Container(
                       height: AppSize.s60,
                       margin: const EdgeInsets.symmetric(vertical: AppSize.s7),

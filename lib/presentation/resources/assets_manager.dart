@@ -15,6 +15,8 @@ class ImageAssets{
  static String docb="$imagePath/docb.jpeg";
  static String docc="$imagePath/docc.jpeg";
  static String docw="$imagePath/docw.jpeg";
+ static String docctor3="$imagePath/doctor3.jpg";
+ static String doctorah="$imagePath/doctorah.jpg";
  static String docw2="$imagePath/docw2.jpeg";
  static String groupLogo="$imagePath/group.png";
  static String medicalCheckupLogo2="$imagePath/medicalCheckup2.png";

@@ -3,7 +3,8 @@ import 'package:zahra/presentation/resources/strings_manager.dart';
 import 'package:zahra/presentation/screens/appointment_screen/appointment_view.dart';
 import 'package:zahra/presentation/screens/selfExam_screen/selfExam_view.dart';
 import '../../layout/shop_layout/main_layout.dart';
-import '../../view/screens/add_info_screen/add_info_view.dart';
+import '../../view/screens/before_plan_screen/before_plane_view.dart';
+import '../screens/addInfo_screen/add_info_view.dart';
 import '../../view/screens/daily_check_up_screen/daily_check_up_view.dart';
 import '../../view/screens/log_in_screen/log_in_screen.dart';
 import '../../view/screens/main_screen/main_view.dart';
@@ -56,6 +57,7 @@ class Routes {
   static const String splashRouteTwoRoute= "/splashAnimation";
   static const String onBoardingRoute = "/onBoarding";
   static const String onBoardingStartingRoute = "/onBoardingStart";
+  static const String beforePlaneView = "/beforePlaneView";
 
 
 }
@@ -72,7 +74,7 @@ class RouteGenerator {
       case Routes.mainLayout:
         return MaterialPageRoute(builder: (_) =>   const MainLayout());
       case Routes.addInfoRoute:
-        return MaterialPageRoute(builder: (_) => const AddInfoView());
+        return MaterialPageRoute(builder: (_) =>  AddInfoView());
       case Routes.dalyCheckupRoute:
         return MaterialPageRoute(builder: (_) => const DalyCheckupView());
       case Routes.doctorRoute:
@@ -113,6 +115,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => LogIn());
       case Routes.registerRoute:
         return MaterialPageRoute(builder: (_) => Register());
+        case Routes.beforePlaneView:
+        return MaterialPageRoute(builder: (_) => BeforePlaneView());
 
     // case Routes.homeRoute:
     //   return MaterialPageRoute(builder: (_) =>  HomeView());

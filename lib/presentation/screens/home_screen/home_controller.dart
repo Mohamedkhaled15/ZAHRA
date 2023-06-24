@@ -8,7 +8,6 @@ class HomeController{
   var img=[
     ImageAssets.medicineLogo,
     ImageAssets.doctorLogo,
-    ImageAssets.groupLogo,
     ImageAssets.medicalCheckupLogo,
     ImageAssets.essaysIcon,
     ];
@@ -22,7 +21,7 @@ class HomeController{
   var label=[
     AppStrings.medicine,
     AppStrings.doctor,
-    AppStrings.self,
+
     AppStrings.checkup,
     AppStrings.essays,
 
@@ -31,7 +30,7 @@ class HomeController{
   var nav=[
     Routes.medicineRoute,
     Routes.doctorRoute,
-    Routes.selfExamRoute,
+
     Routes.dalyCheckupRoute,
     Routes.addInfoRoute,
 

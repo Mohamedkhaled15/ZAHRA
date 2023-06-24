@@ -12,11 +12,6 @@ import '../shared/constant/constant.dart';
 import 'package:dio/dio.dart';
 class MyApp extends StatefulWidget {
 
-
-
-
-
-
 //named constructor
   const MyApp._internal();
 
@@ -45,7 +40,7 @@ class _MyAppState extends State<MyApp> {
           return GetMaterialApp(
             debugShowCheckedModeBanner: false,
             onGenerateRoute: RouteGenerator.getRoute,
-            initialRoute: Routes.mainLayout,
+            initialRoute: Routes.splashRoute,
             theme: getAppTheme(),
           );
         },

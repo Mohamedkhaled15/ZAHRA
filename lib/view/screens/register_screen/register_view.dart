@@ -3,33 +3,34 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
-import 'package:flutter_login_facebook/flutter_login_facebook.dart';
+
 import 'package:get/get.dart';
 
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:zahra/presentation/component/variables.dart';
 import 'package:zahra/view/screens/register_screen/cubit/cubit.dart';
 import 'package:zahra/view/screens/register_screen/cubit/state.dart';
 
-import '../../../controller/auth_google.dart';
+
 import '../../../core/component/check_box.dart';
 import '../../../core/component/default_button.dart';
 import '../../../core/component/shared_component.dart';
-import '../../../core/constant/colors_manager.dart';
+
 import '../../../core/constant/font_manager.dart';
-import '../../../core/constant/image_assets_manager.dart';
+
 import '../../../core/constant/strings_manger.dart';
 import '../../../core/constant/values_manger.dart';
-import '../../../data/services/auth_google.dart';
-import '../../../layout/shop_layout/cubit/cubit.dart';
+
 import '../../../layout/shop_layout/main_layout.dart';
+import '../../../presentation/resources/color_manager.dart';
 import '../../../shared/constant/constant.dart';
 import '../../../shared/network/local/cache_helper.dart';
 import '../../widget/custom_text_form_field.dart';
 import '../../widget/face_google_signup.dart';
 import '../../widget/register_by.dart';
-import '../home_screen/home_view.dart';
+
 import '../log_in_screen/log_in_screen.dart';
-import '../main_screen/main_view.dart';
+
 
 class Register extends StatefulWidget {
   Register({Key? key}) : super(key: key);
@@ -105,6 +106,7 @@ final GoogleSignIn googleSignIn = GoogleSignIn();
           textDirection: TextDirection.rtl,
           child: OrientationBuilder(builder: (context, orientation) {
             return Scaffold(
+              backgroundColor: ColorManager.primary,
               body: CustomScrollView(
                 slivers: [
                   SliverAppBar(
@@ -172,6 +174,9 @@ final GoogleSignIn googleSignIn = GoogleSignIn();
                                     children: [
                                       defaultTextField(
                                           // suffixText: "دخل اسمك الكامل",
+                                        onChangeFun: (value){
+                                          loggedName=value;
+                                        },
                                           labelText:
                                               AppStrings.nameIsTextFormField,
                                           controller: _nameController,
@@ -184,7 +189,9 @@ final GoogleSignIn googleSignIn = GoogleSignIn();
                                               return "يرجي إدخال اسم المستخدم الخاص بك";
                                             }
                                             return null;
-                                          }),
+                                          }
+
+                                          ),
                                       SizedBox(
                                         height:
                                             MediaQuery.of(context).size.height /
@@ -209,6 +216,7 @@ final GoogleSignIn googleSignIn = GoogleSignIn();
                                         },
                                         onChangeFun: (value){
                                           email=value;
+                                          loggedEmail=value;
                                         }
                                       ),
                                       SizedBox(
@@ -217,6 +225,7 @@ final GoogleSignIn googleSignIn = GoogleSignIn();
                                                 50,
                                       ),
                                       defaultTextField(
+
                                         controller: _passwordController,
                                         labelText:
                                             AppStrings.passwordIsTextFormField,
@@ -241,6 +250,7 @@ final GoogleSignIn googleSignIn = GoogleSignIn();
                                         },
                                           onChangeFun: (value){
                                             password=value;
+                                            loggedPassword=value;
                                           }
                                       ),
                                       SizedBox(

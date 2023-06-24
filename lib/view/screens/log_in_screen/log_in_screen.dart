@@ -7,6 +7,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:zahra/core/constant/strings_manger.dart';
 import 'package:zahra/core/constant/values_manger.dart';
+import 'package:zahra/presentation/component/variables.dart';
 import 'package:zahra/view/screens/main_screen/main_view.dart';
 import 'package:zahra/view/screens/register_screen/register_view.dart';
 
@@ -24,7 +25,7 @@ import '../../../shared/network/local/cache_helper.dart';
 import '../../widget/custom_text_form_field.dart';
 import '../../widget/face_google_signup.dart';
 import '../../widget/register_by.dart';
-import '../home_screen/home_view.dart';
+
 import 'cubit/cubit.dart';
 import 'cubit/state.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -154,6 +155,7 @@ class _LogInState extends State<LogIn> {
                                   },
                                   onChangeFun: (value){
                                     email=value;
+                                    loggedEmail=value;
                                   },
                                 ),
                                 SizedBox(
@@ -184,6 +186,7 @@ class _LogInState extends State<LogIn> {
                                   },
                                   onChangeFun: (value){
                                     password=value;
+                                    loggedPassword=password;
                                   },
                                   validateFun: (value) {
 

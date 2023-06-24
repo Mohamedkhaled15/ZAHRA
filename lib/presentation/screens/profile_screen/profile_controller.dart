@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
+import '../../resources/routes_manager.dart';
 import '../../resources/strings_manager.dart';
 
 
@@ -38,6 +39,12 @@ class ProfileController{
     AppStrings.doctorShare,
     AppStrings.archive,
     AppStrings.con,
+
+  ];
+  var nav=[
+    Routes.beforePlaneView,
+    Routes.doctorRoute,
+
 
   ];
 }

@@ -23,6 +23,7 @@ class AppStrings{
   static const notificationHint6="     نذكرك بإقتراب موعد الفحص الذاتي     ";
 //profile Strings
   static const personalPage="الصفحة الشخصية";
+  static const addInfo="أضف الي معلوماتك";
   static const edite="تعديل";
   static const save="حفظ";
   static const name=" : الإسم";
